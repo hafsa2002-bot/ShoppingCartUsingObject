@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Hind+Mysuru:wght@300;400;500;600;700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --dark_grey:#212529;
+    --light_grey:#f8f9fa;
+}
+*{
+    border: 1px solid red;
+}
+/* body{
+    margin:0;
+    padding:0;
+    font-family: "Poppins", sans-serif;
+} */
+/* nav{
+    background-color: var(--light_grey);
+    position:fixed;
+    top:0;
+    z-index:99;
+    width:100%;
+} */
+.search_Mobile{
+    display:none;
+}
+/* .nav-bar{
+    color:#111827;
+    font-size:15px;
+    display:flex;
+    padding:0px 20px;
+    gap:20px;
+    justify-content: space-between;
+    align-items: center;
+} */
+/* .nav_bar_rt{
+    display:flex;
+    align-items: center;
+    gap:60px;
+} */
+/* .nav_bar_rt select{
+    border:none;
+    background-color: var(--light_grey);
+    font-size:medium;
+    color:var()
+} */
+/* .nav_bar_rt input, .nav_bar_rt button{
+    border-radius: 6px;
+    border:0.4px solid var(--dark_grey);
+    height:35px;
+} */
+.search_Mobile input, .search_Mobile button{
+    border-radius: 6px;
+    border:0.4px solid var(--dark_grey);
+    height:35px;
+}
+/* .nav_bar_rt input{
+    width:400px;
+    padding:7px;
+} */
+/* .nav_bar_rt button{
+    width:60px;
+} */
+/* i{
+    font-size: larger;
+} */
+/* .nav-bar ul{
+    display:flex;
+    list-style: none;
+    gap:30px;
+} */
+/* .nav-bar a{
+    text-decoration: none;
+    color:#111827;
+} */
+
+/* .heroSection img{
+    position:absolute;
+    z-index:-1;
+    width:100%;
+    height:75%;
+    opacity: 50%;
+} */
+
+/* .heroSection .content{
+    padding-top:120px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+} */
+/* .heroSection h1{
+    font-size:50px;
+    margin-bottom:0;
+} */
+/* .heroSection p{
+    font-size: 25px;
+    text-align: center;
+} */
+/* .heroSection button{
+    text-transform: uppercase;
+    border:none;
+    border-radius: 8px;
+    width:270px;
+    height:40px;
+    background-color:#e6447a ;
+    color:white;
+    font-size:large;
+} */
+
+/* .section_title{
+    text-align:center;
+    font-family:'serif','Arial';
+    font-size:27px;
+} */
+/* .row{
+    display:flex;
+    justify-content: center;
+} */
+/* .sellersSection > .row{
+    display:flex;
+    justify-content: center;
+    gap:60px;
+} */
+/* .col{
+    color:#212529;
+    border:0.3px solid #adadad;
+    border-radius: 6px;
+    overflow: hidden;
+} */
+/* .sellersSection .col{
+    background-color:rgba(235, 235, 235, 0.2);
+    width:20rem;
+} */
+/* .sellersSection img{
+    width:20rem;
+    height:20rem;
+} */
+/* .sellersSection .card-title{
+    font-size: 20px;
+    text-align: center;
+    line-height: 24px;
+    color:#212529;
+    font-weight:400;
+    margin-bottom:8px;
+} */
+/* .sellersSection button, .collectionSection button{
+    width:90px;
+    height:38px;
+    padding:6px 12px;
+    background-color: var(--dark_grey);
+    color:white;
+    border:none;
+    font-size: 16px;
+    border-radius:6px;
+} */
+/* .card_body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+} */
+/* .sellersSection .card_body{
+    position:relative;
+    bottom:7px;
+    padding-bottom:16px;
+} */
+
+
+footer{
+    background-color: #212529;
+    display:flex;
+    margin-top:90px;
+    justify-content: space-between;
+    padding:30px 70px;
+}
+footer h2{
+    color:white;
+    font-weight:400;
+    font-size:larger;
+    border-bottom: 2px solid #e6447a;
+}
+footer a{
+    color:#bbbbbb;
+}
+footer a{
+    text-decoration: none;
+}
+footer ul{
+    list-style: none;
+    padding-left:5px;
+}
+.followUs_list{
+    display: flex;
+    justify-content: space-between;
+    gap:25px;
+}
+
+/* Responsive Design */
+
+/* Extra Small devices  */
+@media (max-width: 576px) {
+    nav{
+        align-items: center;
+        box-sizing: border-box;
+        display:flex;
+        flex-direction: column;
+        padding:13px 5px;
+    }
+    .nav-bar .search{
+        display:none;
+    }
+    .search_Mobile{
+        display: block;
+    }
+    .nav_bar_rt{
+        gap:6px;
+    }
+    .logo_div h1{
+        /* width:70px; */
+        font-size:large;
+    }
+    .nav-bar select{
+        width:80px;
+    }
+    .nav-bar ul{
+        padding:0;
+        gap:7px;
+    }
+    .nav-bar i{
+        font-size: medium;
+    }
+    .search_Mobile input{
+        width:230px;
+        height: 30px;
+        padding:7px;
+    }
+    .search_Mobile button{
+        width:40px;
+        height:30px;
+    }
+    .heroSection{
+        background-image: linear-gradient(80deg, rgba(216, 195, 195, 0.4), rgba(224, 175, 175, 0.9)),url(backgroundImage2.jpg);
+    }
+    .heroSection .content{
+        padding-top:130px;
+        padding-bottom: 40px;
+    }
+    .heroSection p{
+        font-size:18px;
+    }
+    .heroSection h1{
+        font-size:35px;
+        margin-bottom:0;
+    }
+    .heroSection img{
+        display: none;
+        /* width:100%;
+        height:65%; */
+    }
+    .heroSection .title{
+        text-align: center;
+    }
+    .heroSection button{
+        height:40px;
+        width:240px;
+        background-color:#e6447a ;
+        font-size:large;
+        font-weight: 500;
+    }
+    .section_title{
+        font-size:22px;
+    }
+    .sellersSection{
+        padding: 40px 20px 0 20px;
+    }
+    .sellersSection > .row{
+        flex-wrap: wrap;
+    }
+    .sellersSection .col{
+        width:14rem;
+    }
+    .sellersSection img{
+        width:14rem;
+        height:14rem;
+    }
+    .sellersSection .card-title{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom:10px;
+        height:60px;
+    }
+    .sellersSection button, .collectionSection button{
+        width:100px;
+        font-size: 17px;
+    }
+    .collectionSection .col{
+        width:15rem;
+        height:20rem;
+    }
+    .collectionSection img{
+        width:15rem;
+    }
+    .collectionSection .row{
+        flex-wrap: wrap;
+    }
+    .aboutSection > div{
+        display:flex;
+        flex-direction: column;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutSection p{ 
+        width:320px;
+    }
+    
+    .aboutSection img{
+        width:320px;
+        height: 270px;
+        border-radius:8px;
+    } 
+    footer{
+        margin-top:50px;
+        padding:10px 10px;
+    }
+    footer > div{
+        width:70px;
+    }
+    footer h2{
+        font-weight:400;
+        font-size:small;
+        border:none;
+    }
+    footer li{
+        font-size: 10px;
+    }
+    .followUs_list{
+        gap:9px;
+        justify-content: flex-start;
+    }
+ }
+
+/* Medium devices (tablets, ...) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .nav_bar_rt{
+        gap:17px;
+    }
+    .nav_bar_rt input{
+        width:200px;
+    }
+    .nav_bar_rt button{
+        width:60px;
+    }
+    .nav-bar ul{
+        padding:0;
+        gap:10px;
+    }
+    .heroSection img{
+        width:100%;
+        height:75%;
+    }
+    .heroSection .title{
+        text-align: center;
+    }
+    .heroSection button{
+        height:60px;
+        background-color:#e6447a ;
+        font-size:larger;
+        font-weight: 600;
+    }
+    .section_title{
+        font-size:22px;
+    }
+    .sellersSection{
+        padding:160px 20px 0 20px;
+    }
+    .sellersSection > .row{
+        gap:20px;
+    }
+    .sellersSection .col{
+        width:16rem;
+    }
+    .sellersSection img{
+        width:16rem;
+        height:16rem;
+    }
+    .sellersSection .card-title{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom:10px;
+    }
+    .sellersSection button, .collectionSection button{
+        width:100px;
+        font-size: 17px;
+    }
+    .collectionSection{
+        padding-left:6px;
+        padding-right:6px;
+    }
+    .collectionSection .col{
+        width:14rem;
+        height:16rem;
+    }
+    .collectionSection img{
+        width:11rem;
+    }
+    .collectionSection .row{
+        gap:10px;
+    }
+    .aboutSection > div{
+        display:flex;
+        flex-direction: column;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutSection p{ 
+        width:630px;
+    }
+    .aboutSection img{
+        width:650px;
+        height: 400px;
+        border-radius:8px;
+    } 
+    footer{
+        margin-top:50px;
+        padding:20px 50px;
+    }
+    .followUs_list{
+        gap:20px;
+    }
+ }
+
+/* Small devices */
+@media (min-width: 576px) and (max-width: 768px) {
+    .nav_bar_rt{
+        gap:13px;
+    }
+    .logo_div h1{
+        width:100px;
+    }
+    .nav_bar_rt input{
+        width:100px;
+    }
+    .nav_bar_rt button{
+        width:40px;
+    }
+    .nav-bar ul{
+        padding:0;
+        gap:10px;
+    }
+    .heroSection img{
+        width:100%;
+        height:75%;
+    }
+    .heroSection .title{
+        text-align: center;
+    }
+    .heroSection button{
+        height:60px;
+        background-color:#e6447a ;
+        font-size:larger;
+        font-weight: 600;
+    }
+    .section_title{
+        font-size:22px;
+    }
+    .sellersSection{
+        padding:160px 20px 0 20px;
+    }
+    .sellersSection > .row{
+        gap:20px;
+    }
+    .sellersSection .col{
+        width:14rem;
+    }
+    .sellersSection img{
+        width:14rem;
+        height:14rem;
+    }
+    .sellersSection .card-title{
+        font-size: 17px;
+        font-weight: 500;
+        margin-bottom:10px;
+        height:60px;
+    }
+    .sellersSection button, .collectionSection button{
+        width:100px;
+        font-size: 17px;
+    }
+    .collectionSection{
+        padding-left:6px;
+        padding-right:6px;
+    }
+    .collectionSection .col{
+        width:14rem;
+        height:16rem;
+    }
+    .collectionSection img{
+        width:11rem;
+    }
+    .collectionSection .row{
+        gap:10px;
+    }
+    .aboutSection > div{
+        display:flex;
+        flex-direction: column;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutSection p{ 
+        width:480px;
+    }
+    
+    .aboutSection img{
+        width:500px;
+        height: 400px;
+        border-radius:8px;
+    } 
+    footer{
+        margin-top:50px;
+        padding:10px 20px;
+    }
+    footer h2{
+        font-weight:400;
+        font-size:medium;
+    }
+    footer ul{
+        list-style: none;
+        padding-left:5px;
+    }
+    .followUs_list{
+        gap:10px;
+    }
+ }
+
+
+
+
