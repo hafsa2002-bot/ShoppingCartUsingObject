@@ -35,26 +35,25 @@ const sections = {
         divSection.setAttribute('class', 'flex flex-wrap  gap-14')
         for(var x of sections[section]){
             console.log("x: ", x['item_name'])
-            
-                let safeItemName = x['item_name'].replace(/'/g, "\\'");
-                var div_cart = document.createElement('div')
-                div_cart.setAttribute('class', 'col relative  hover:shadow-xl  w-1/4 m-auto text-[#212529] border-[0.3px] bg-gray-50  rounded-md overflow-hidden')
-                div_cart.innerHTML = `
-                    <img src="images/${x['img_src']}" class="card-img-top w-full h-80 border-b " alt="">
-                    <div onclick="addToFvrt('images/${x['img_src']}', '${safeItemName}', ${x['price']}, '${x['icon_id']}')" class="flex justify-center items-center absolute top-3 right-3 bg-gray-100 hover:bg-pink-200 cursor-pointer w-10 h-10 rounded-full">
-                        <i id="${x['icon_id']}" class=" fa-regular fa-heart fa-xl" style="color: #e6447a;"></i>
+            let safeItemName = x['item_name'].replace(/'/g, "\\'");
+            var div_cart = document.createElement('div')
+            div_cart.setAttribute('class', 'col relative  hover:shadow-xl  w-1/4 m-auto text-[#212529] border-[0.3px] bg-gray-50  rounded-md overflow-hidden')
+            div_cart.innerHTML = `
+                <img src="images/${x['img_src']}" class="card-img-top w-full h-80 border-b " alt="">
+                <div onclick="addToFvrt('images/${x['img_src']}', '${safeItemName}', ${x['price']}, '${x['icon_id']}')" class="flex justify-center items-center absolute top-3 right-3 bg-gray-100 hover:bg-pink-200 cursor-pointer w-10 h-10 rounded-full">
+                    <i id="${x['icon_id']}" class=" fa-regular fa-heart fa-xl" style="color: #e6447a;"></i>
+                </div>
+                <div class="card_body flex flex-col items-center pt-3">
+                    <h5 class="card-title h-14  text-lg font-semibold text-center leading-6 text-[#212529] mb-2 px-2">${x['item_name']}</h5>
+                    <h5 class="card-title  text-lg font-semibold text-center leading-6 text-[#212529] mb-2">${x['price']} dh</h5>
+                    <div class="w-full h-9 py-5 px-16 bg-[#e6447a] text-white text-base flex justify-between items-center mt-2">
+                        <button onclick="minus('images/${x['img_src']}', ${x['price']}, '${x['qte_id']}')" class="text-white font-semibold text-xl">-</button>
+                        <p id="${x['qte_id']}" class="text-white font-semibold text-xl">0</p>
+                        <button type="submit" onclick="plus('images/${x['img_src']}', '${safeItemName}', ${x['price']}, '${x['qte_id']}')" class="text-white font-semibold text-xl">+</button>
                     </div>
-                    <div class="card_body flex flex-col items-center pt-3">
-                        <h5 class="card-title h-14  text-lg font-semibold text-center leading-6 text-[#212529] mb-2 px-2">${x['item_name']}</h5>
-                        <h5 class="card-title  text-lg font-semibold text-center leading-6 text-[#212529] mb-2">${x['price']} dh</h5>
-                        <div class="w-full h-9 py-5 px-16 bg-[#e6447a] text-white text-base flex justify-between items-center mt-2">
-                            <button onclick="minus('images/${x['img_src']}', '${safeItemName}', ${x['price']}, '${x['qte_id']}')" class="text-white font-semibold text-xl">-</button>
-                            <p id="${x['qte_id']}" class="text-white font-semibold text-xl">0</p>
-                            <button type="submit" onclick="plus('images/${x['img_src']}', '${safeItemName}', ${x['price']}, '${x['qte_id']}')" class="text-white font-semibold text-xl">+</button>
-                        </div>
-                    </div>
-                `
-                divSection.appendChild(div_cart)
+                </div>
+            `
+            divSection.appendChild(div_cart)
         }
     }
     
@@ -68,58 +67,24 @@ const sections = {
     function createDiv(img_src, item_name, qty, price, pQtID){ 
         var newDiv = document.createElement('div')
         var divID = 'div_' + img_src
-        newDiv.setAttribute('id', divID)
-        console.log("new div : ", newDiv)
         var div_panier = document.getElementById('panier')
-        newDiv.setAttribute('class', 'flex justify-between px-5 py-3 border-t border-b')
-
-        var item_img = document.createElement('img')
-        item_img.setAttribute('class', 'w-20 h-20 border')
-        item_img.setAttribute('src', img_src)
-        newDiv.appendChild(item_img)
-
-        var divOne = document.createElement('div')
-        divOne.setAttribute('class', 'text-right w-3/5')
-        var pName = document.createElement('p')
-        pName.setAttribute('class', 'font-semibold')
-        pName.innerHTML = item_name
-        divOne.appendChild(pName)
-
-        var pQte = document.createElement('p')
-        var spanQte = document.createElement('span')
-        spanQte.setAttribute('class', 'pr-4')
-        var qte_id = 'qte_' + img_src   
-        spanQte.setAttribute('id', qte_id)
-        spanQte.innerHTML = qty
-        pQte.appendChild(spanQte)
-        var pcs = document.createTextNode('pcs')
-        pQte.appendChild(pcs)
-        divOne.appendChild(pQte)
-        var pPrice = document.createElement('p')
-        var spanPrice = document.createElement('span')
-        spanPrice.setAttribute('class', 'pr-4')
+        var qte_id = 'qte_' + img_src
         var price_id = 'price_' + img_src  
-        spanPrice.setAttribute('id', price_id)
-        var textPrice = document.createTextNode(qty * price) 
-        spanPrice.appendChild(textPrice) 
-        pPrice.appendChild(spanPrice)
-        var dirham = document.createTextNode('dh')
-        pPrice.appendChild(dirham)
-        divOne.appendChild(pPrice)
-        newDiv.appendChild(divOne)
-        var divTwo = document.createElement('div')
-        var icon = document.createElement('i')
-        icon.setAttribute('class', 'cursor-pointer fa-solid fa-trash')
-        icon.setAttribute('style', 'color: #e6447a;')
-        var div_onclick = "deleteItem('" + divID + "', '" + img_src + "', '" + pQtID + "')"  /*   */
-        icon.setAttribute('onclick', div_onclick)
-        console.log("icon: ", icon)
-        divTwo.appendChild(icon)
-        newDiv.appendChild(divTwo)
+        newDiv.setAttribute('id', divID) 
+        newDiv.setAttribute('class', 'flex justify-between px-5 py-3 border-t border-b')
+        newDiv.innerHTML = `
+        <img src= "${img_src}" class="item_img w-20 h-20 border">
+        <div class="divOne text-right w-3/5">
+            <p class="pName font-semibold">${item_name}</p>
+            <p class="pQte"><span class="spanQte pr-4" id=${qte_id}>${qty}</span>pcs</p>
+            <p class="pPrice"><span class="spanPrice pr-4" id="${price_id}">${qty * price}</span>dh</p>
+        </div>
+        <div class="divTwo">
+            <i class="icon cursor-pointer fa-solid fa-trash" style="color: #e6447a;" onclick="deleteItem(' ${divID}', '${img_src}', '${pQtID}')"></i>
+        </div>
+        `
         div_panier.appendChild(newDiv)
-        return {qte_id, price_id}
     }
-
 
     function plus(image_src, item_name, item_price, qty_id){
         var qte = document.getElementById(qty_id)
@@ -127,9 +92,7 @@ const sections = {
         var span_priceID = 'price_' + image_src
         if(qte.innerHTML == "0"){
             qte.innerHTML = (parseInt(qte.innerHTML) + 1).toString()
-            var res = createDiv(image_src, item_name, qte.innerHTML, item_price, qty_id)
-            span_qteID = res.qte_id
-            span_priceID = res.price_id
+            createDiv(image_src, item_name, qte.innerHTML, item_price, qty_id)
             var total = document.getElementById('total')
             total.innerHTML = parseInt(total.innerHTML) + (item_price * parseInt(qte.innerHTML))
             console.log("total.innerHTML : ", total.innerHTML) 
@@ -145,8 +108,7 @@ const sections = {
         }
     }
 
-
-    function minus(image_src, item_name, item_price, qty_id){
+    function minus(image_src, item_price, qty_id){
         var qte = document.getElementById(qty_id)
         var divID = 'div_' + image_src
         if(parseInt(qte.innerHTML) > 1){
@@ -187,50 +149,25 @@ const sections = {
         qte.innerHTML = "0"
     }
 
-    
     function createDivFav(img_src, item_name, price, iconID){  
         var newDiv = document.createElement('div')
         var divID = 'fav_' + img_src
-        newDiv.setAttribute('id', divID)
         var div_panier = document.getElementById('favoriteItems')
+        var price_id = 'priceFav_' + img_src  
+        newDiv.setAttribute('id', divID) 
         newDiv.setAttribute('class', 'flex justify-between px-5 py-3 border-t border-b')
-
-        var item_img = document.createElement('img')
-        item_img.setAttribute('class', 'w-20 h-20 border')
-        item_img.setAttribute('src', img_src)
-        newDiv.appendChild(item_img)
-        
-        var divOne = document.createElement('div')
-        divOne.setAttribute('class', 'text-right w-3/5')
-        var pName = document.createElement('p')
-        pName.setAttribute('class', 'font-semibold')
-        pName.innerHTML = item_name
-        divOne.appendChild(pName)
-
-        var pPrice = document.createElement('p')
-        var spanPrice = document.createElement('span')
-        spanPrice.setAttribute('class', 'pr-4')
-        var price_id = 'priceFav_' + img_src 
-        spanPrice.setAttribute('id', price_id)
-        var textPrice = document.createTextNode(price)
-        spanPrice.appendChild(textPrice)  
-        pPrice.appendChild(spanPrice)
-        var dirham = document.createTextNode('dh')
-        pPrice.appendChild(dirham)
-        divOne.appendChild(pPrice)
-        newDiv.appendChild(divOne)
-        var divTwo = document.createElement('div')
-        var icon = document.createElement('i')
-        icon.setAttribute('class', 'cursor-pointer fa-solid fa-trash')
-        icon.setAttribute('style', 'color: #e6447a;')
-        var div_onclick = "deleteFromFvrt('" + img_src + "' , '" + iconID + "')"
-        icon.setAttribute('onclick', div_onclick)
-        divTwo.appendChild(icon)
-        newDiv.appendChild(divTwo)
+        newDiv.innerHTML = `
+        <img src= "${img_src}" class="item_img w-20 h-20 border">
+        <div class="divOne text-right w-3/5">
+            <p class="pName font-semibold">${item_name}</p>
+            <p class="pPrice"><span class="spanPrice pr-4" id="${price_id}">${price}</span>dh</p>
+        </div>
+        <div class="divTwo">
+            <i class="icon cursor-pointer fa-solid fa-trash" style="color: #e6447a;" onclick="deleteFromFvrt('${img_src}' , '${iconID}')"></i>
+        </div>
+        `
         div_panier.appendChild(newDiv)
     }
-
-
 
     function addToFvrt(imageSrc, itemName, itemPrice, iconID){
             var divFav = document.getElementById('favoriteItems')
